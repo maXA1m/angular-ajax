@@ -1,0 +1,26 @@
+
+table{
+  border-collapse: collapse;
+}
+
+td{
+    vertical-align: top;
+}
+th, td{
+  font-size: 18px;
+  vertical-align: middle;
+  border-bottom: 1px solid #ccc;
+}
+
+tr.user{
+  color: #303F9F;
+  transition: all ease-in-out .3s;
+}
+
+#error{
+  color: #E53935;
+}
+
+#success{
+  color: #689F38;
+}

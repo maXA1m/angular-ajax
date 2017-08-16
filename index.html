@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" data-ng-app="angTest">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-ng-controller="userCtrl" ng-cloak>
+    
+<div layout="column" layout-align="center center">
+        <div flex>
+            <table>
+                <tr>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>ID</label>
+                            <input type="text" data-ng-model="id" data-ng-change="myFilter()">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Login</label>
+                            <input type="text" data-ng-model="login" data-ng-change="myFilter()">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Password</label>
+                            <input type="text" data-ng-model="password" data-ng-change="myFilter()">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Email</label>
+                            <input type="text" data-ng-model="email" data-ng-change="myFilter()">
+                        </md-input-container>
+                    </td>
+                    <td>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Status</label>
+                        <md-select ng-model="status" placeholder="Status" data-ng-change="myFilter()">
+                            <md-option value="all" ng-trim="boolean" selected>all</md-option>
+                            <md-option value="active">active</md-option>
+                            <md-option value="inactive">inactive</md-option>
+                        </md-select>
+                    </md-input-container>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr class="user" data-ng-repeat="x in users">
+                    <td data-ng-bind="x.id"></td>
+                    <td data-ng-bind="x.login"></td>
+                    <td data-ng-bind="x.password"></td>
+                    <td data-ng-bind="x.email"></td>
+                    <td data-ng-bind="x.status"></td>
+                    <td><md-button class="md-raised md-warn" data-ng-click="delete(x.id)">Delete</md-button></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div flex>
+            <form>
+            <md-input-container class="md-inline-block" flex-gt-sm>
+                <label>Login</label>
+                <input required type="text" ng-model="user.login">
+            </md-input-container>
+            <md-input-container class="md-inline-block" flex-gt-sm>
+                <label>Password</label>
+                <input required type="password" ng-model="user.password">
+            </md-input-container>
+            <md-input-container class="md-inline-block" flex-gt-sm>
+                <label>Email</label>
+                <input required type="email" ng-model="user.email">
+            </md-input-container>
+            <md-button type="submit" value="Send" class="md-raised md-primary" data-ng-click="add(user)">Submit</md-button>
+            </form>
+        </div>
+
+        <div id="error" data-ng-bind="error" flex></div>
+        <div id="success" data-ng-bind="success" flex></div>
+</div>
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/userController.js"></script>
+</body>
+</html>
